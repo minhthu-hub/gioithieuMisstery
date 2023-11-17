@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Giao diện Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        /* Định dạng phần header của website */
+        header {
+            background-color: rgb(177, 80, 177);
+            padding: 20px;
+			display: flex;
+            align-items: center;
+        }
+        
+        /* Định dạng logo */
+        .logo {
+            flex: 0 0 15%;
+            max-width: 100px; /* Thay đổi kích thước tối đa của logo tại đây */
+            height: auto;
+            
+        }
+
+        /* Định dạng menu */
+        .menu {
+            flex: 85%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+		
+        /* Định dạng các liên kết trong menu */
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        /* định dạng chữ "MISTERY" trên hình */
+        .main h1 {
+            color: rgb(119, 59, 175);
+            margin-left: 10%;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+
+        }
+        /* định dạng cho phần GIỚI THIỆU */
+        /* chia giao diện thành 2 cột, với độ rộng mỗi cột chiếm 50% */
+		.main-section {
+            column-count: 2; 
+			column-width: 50%;
+            color: black;
+            padding-top: 50px 0;
+			align-items: flex-start;
+        }
+        .gioithieu{
+            padding-bottom: 12%;
+            margin-left:  20px;
+        }
+
+        /* định dạng nội dung cho phần GIỚI THIỆU */
+        .text-content {
+			flex-basis: 100%;
+			flex: 1 1 auto;
+			color: black;
+			padding: 20px;
+			text-align: justify;
+			max-width: fit-content;
+            font-size: 18px;
+            line-height: 1.5;
+            
+        }
+        
+        /* định dạng hình ảnh cho phần GIỚI THIỆU */
+        .image-content {
+			max-width: 100%;
+			height: fit-content;
+            flex: 0 0 auto;
+            margin-right: 20px;
+		}
+
+        /* định dạng cho phần SỨ MỆNH */
+        /* chia giao diện thành 2 cột, với độ rộng mỗi cột chiếm 50% */
+		.mission-section {
+			column-count: 2; 
+			column-width: 50%;
+            color: white;
+            padding-top: 50px 0;
+			align-items: flex-start;
+        }
+            
+        .sumenh {
+            
+           padding: 12%;
+		   text-align: center;
+        }
+
+        /* định dạng hình ảnh cho phần SỨ MỆNH */
+        .mission-image {
+            max-width: 100%;
+			height: fit-content;
+			flex: 0 0 auto;
+            margin-right: 20px;
+		}
+        
+        /* định dạng nội dung cho phần SỨ MỆNH */
+        .mission-text {
+			flex-basis: 100%;
+			margin-right: 10px;
+			flex: 1 1 auto;
+			color: black;
+			padding: 10px;
+			text-align: justify;
+			width: 100%;
+            font-size: 18px;
+            line-height: 1.5;
+        }	
+        .camket{ padding: 10%;margin-left: 15%; }
+        
+        /* định dang cho phần CHÚNG TÔI CAM KẾT */
+        /* thiết lập lưới,
+        tạo ra một lưới với 4 cột bằng nhau, mỗi cột chiếm phần bằng nhau trong không gian lưới sử dụng đơn vị fr
+        khoảng cách giữa các cột là 20px */ 
+        .columns-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .column {
+           
+            text-align: center;
+        }
+        
+        .column img {
+            width: 200px;
+            height: auto;
+            margin-top: 10px;
+        }
+        .danhgia{ padding: 10%; margin-left: 10%;}
+
+        /* định dang cho phần Khách hàng nói gì về Mistery */
+        /* thiết lập lưới,
+        tạo ra một lưới với 3 cột bằng nhau, mỗi cột chiếm phần bằng nhau trong không gian lưới sử dụng đơn vị fr
+        khoảng cách giữa các cột là 20px */
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        /* Định dạng cho phần review của khách hàng */
+        .review {
+            margin-left: 10px;
+            margin-right: 10px;
+            display: flex; /*Đặt phần tử "review" để sử dụng mô hình Flexbox*/
+            flex-direction: column;
+            align-items: center;
+            text-align: justify;
+        }
+        
+        /* Định dạng cho phần hình ảnh review của khách hàng */
+        .review img {
+            padding: 15%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        
+        .stars {
+            color: gold;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        /* định dạng cho phần LIÊN HÊ */
+        .lienhe{
+            padding-bottom: 10%;
+            margin-left: 45%;
+        }
+        .container1 {
+            display: flex;
+            flex-direction: row;
+        }
+        .column1 {
+            flex: 1;
+            padding: 20px;
+        }
+        .column1 img{
+            padding: 15%;
+            width: 100%;
+			height: fit-content;
+            flex: 0 0 auto;
+            margin-right: 20px; 
+        }
+/* định dạng cho footer website*/  
+/* thiết lập lưới,
+        tạo ra một lưới với 3 cột bằng nhau, mỗi cột chiếm phần bằng nhau trong không gian lưới sử dụng đơn vị fr
+        khoảng cách giữa các cột là 20px */      
+footer {
+  background-color: rgb(177, 80, 177);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.footer {
+    margin-left: 10px;
+  text-align: justify;
+  gap: 20px;
+}
+.tieude{ margin-left: 10px;
+    font-size: 25px;
+}
+.HTKH a{
+ text-decoration: none;  
+ color: black; 
+ font-size: 18px;
+ line-height: 1.5;
+}
+.location-icon {
+    margin-left: 10px;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+.clock-icon {
+    margin-left: 10px;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;}
+  .call-icon {
+    margin-left: 10px;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;}
+  .media-icon {
+  width: 200px;
+  height: 100px;
+  margin-right: 5px;}
+       
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+        <img src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t1.15752-9/393907948_841770734165144_8798268797654983071_n.png?_nc_cat=105&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeFAXEhBj2CkLlePVjvlFWh1ngLKSd-9ceqeAspJ371x6soifns9Wj9vOBq8uB99Qkrh7Z4452IYFAGoZiLIE4M5&_nc_ohc=dmNhDSXm4OUAX_-Tcq-&_nc_ht=scontent.fsgn5-2.fna&oh=03_AdSsflYz5oPVyTMoVoC9mxvZVhqn1b3UM1klsOLUBSFScA&oe=657AC4E6" alt="Logo" class="logo">
+        </div>
+        <nav class="menu">
+            <a href="#">Trang chủ</a>
+            <a href="#">Giới thiệu</a>
+            <a href="#">Sản phẩm</a>
+            <a href="#">Liên hệ</a>
+        </nav>
+    </header>
+    <main>
+		<section class="main">
+			<div style="position: relative;">
+				<img src="https://theciu.vn/blog/wp-content/uploads/2023/10/qua-20-10-nuoc-hoa.jpg" alt="Image" style="width: 100%;" >
+				
+                <!-- định dạng thêm cho chữ "MISTERY" trên ảnh-->
+                <div style="position: absolute;color: rgb(212, 0, 255); top: 20px; left: 20px;">
+				  <h1>MISTERY</h1> </div>
+
+                  <!-- định dạng cho thông điệp trên ảnh-->
+				  <div style="position: absolute;color: white; top: 25%; left: 20px; width: 30%; text-align: center; line-height: 1.5;">
+				  <h2>Hương thơm chạm đến tâm hồn, nâng tầm phong cách của bạn</h2></div>
+				</div>
+			  </div>
+		</section>
+		<section class="gioithieu">
+			<div style="position: absolute;color: rgb(59, 22, 224) ; font-size: 28px;">
+			<h1>GIỚI THIỆU</h1></section>
+		<section class="main-section">
+				<p class="text-content"> Tự hào là một cửa hàng nước hoa độc đáo, MISTERY là nơi bạn có thể khám phá một thế giới mùi hương đầy ấn tượng. Giống như cách âm nhạc và nghệ thuật có sự sắp xếp của âm điệu và màu sắc riêng biệt, MISTERY hiểu rằng mùi hương cũng bao gồm các "nốt" riêng lẻ. Chúng tôi xem xét từng hương thơm như một tác phẩm nghệ thuật độc đáo, với khả năng mang đến sự hài hòa, cuốn hút, tĩnh lặng hoặc phấn khích.
+					Tại MISTERY, chúng tôi không chỉ cung cấp nước hoa, mà còn mang đến trải nghiệm tận hưởng mùi hương. Chúng tôi hiểu rằng mỗi người có cá tính và phong cách riêng, và nước hoa có thể là ngôn ngữ để thể hiện điều đó. Chúng tôi tự hào giúp bạn tìm thấy những "nốt" hương phù hợp với cá nhân của bạn, tạo ra sự tương tác và kể chuyện thông qua mùi hương.</p>
+				<img src="https://toplist.vn/images/800px/rosa-perfume-nuochoarosacom-259313.jpg" alt="Hình ảnh nước hoa" class="image-content">
+		</section>
+	<section>
+		<div style="position: absolute;color: black;font-size: 18px;line-height: 1.5 ; text-align: justify; margin-left: 10px;">
+		<p> Chất lượng là ưu tiên hàng đầu tại MISTERY, và chúng tôi cam kết mang đến những sản phẩm nước hoa độc đáo và thơm lâu. Mỗi chai nước hoa trong cửa hàng của chúng tôi là một tác phẩm nghệ thuật, một dấu ấn của sự khác biệt.
+			Với MISTERY, bạn sẽ không chỉ mua nước hoa, mà bạn còn tạo ra một phong cách và câu chuyện riêng của mình thông qua mùi hương.</p>
+	</section>
+	<section class="sumenh">
+        <div style="position: absolute;color: rgb(59, 22, 224) ;font-size: 28px; ">
+		<h1>SỨ MỆNH</h1></section>
+	<section class="mission-section">
+        <img src="https://toplist.vn/images/800px/rosa-perfume-nuochoarosacom-259313.jpg" alt="Hình ảnh Sứ mệnh" class="mission-image">
+        <p class="mission-text">Khi nói đến nước hoa, nhiều người sẽ nghĩ ngay đến các cụm từ “mùi hương”, “thơm”,... nhưng chúng tôi lại không nghĩ thế. Mistery tin rằng từng phân tử nước hoa không chỉ đơn thuần là một mùi hương, mà còn là một trạng thái tinh thần mang trong mình những thông điệp và sứ mệnh riêng. 
+			Tầm nhìn của Mistery là tạo ra sự trải nghiệm độc đáo, thú vị và năng lượng tươi mới qua những lọ nước hoa được đưa đến tay khách hàng. Những mùi hương được tạo nên từ những nguyên liệu tinh túy cùng sự kết hợp tỉ mỉ, sự sáng tạo của đa dạng tầng hương. Thế giới mùi hương cũng giống như sức sáng tạo của con người và sự phong phú của thiên nhiên, không hề có giới hạn mà chỉ có những điều chưa được khám phá. Và chúng tôi tin rằng mỗi cá nhân đều có quyền sở hữu một mùi hương riêng, và Mistery muốn trở thành một người bạn đồng hành trung thành trong hành trình khám phá và tự biểu đạt bản thân của bạn.</p>
+    </section>
+    <section class="camket">
+        <div style="position: absolute;color: rgb(59, 22, 224) ;font-size: 28px; ">
+		<h1>CHÚNG TÔI CAM KẾT</h1></section>
+    <section>
+        <div class="columns-container">
+            <div class="column">
+                <h3>CHẤT LƯỢNG CAO CẤP</h3>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRPwgVUusxo7L2IQ28JiAD4l5GyOrpSexBCY_GHC4dO1oRdq8r">
+            </div>
+            <div class="column">
+                <h3>CÁ TÍNH MẠNH MẼ</h3>
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS5j9swJDPk8Uwb6Uvt4Bh0v7BK8y7nQ4zD1vYBzVmxLY1LL1iM" alt="Cá tính mạnh mẽ">
+            </div>
+            <div class="column">
+                <h3>BẢO VỆ MÔI TRƯỜNG</h3>
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRwtDDvg4Gxd034Qhn99k8kaRdSpITH9N55cj76Rbn58HAqetGE">
+            </div>
+            <div class="column">
+                <h3>AN TOÀN SỨC KHỎE</h3>
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTKZQmall-GzSH_z-eWSe0eWF_vALEXostG1j0FT5kF4AxsRjPT">
+            </div>
+        </div>
+    </section>
+    <section class="danhgia">
+        <div style="position: absolute;color: rgb(59, 22, 224) ;font-size: 28px; ">
+		<h1>Khách hàng nói gì về Mistery</h1></section>
+	</main>
+	
+
+    <div class="reviews-container">
+        <div class="review">
+            <img src="https://i1.wp.com/reviewdep.com/wp-content/uploads/2021/07/image-68.png?fit=592%2C341&ssl=1">
+            <h2> Ngọc Hoa</h2>
+            <div class="rating">
+                <div class="stars">
+                    ★★★★★
+                </div>
+                <p class="comment">Sản phẩm tốt so với tầm giá, mình không thể tưởng được nước hoa tầm giá ổn vậy mà chất lượng thật, giữ hương rất lâu, mùi rất sang và đổi hương theo thời gian.
+                </p>
+            </div>
+        </div>
+    
+        <div class="review">
+            <img src="https://afamilycdn.com/150157425591193600/2022/2/8/nguy-hai-nuoc-hoa-shimang6-1644291911493412128559.jpg" alt="Khách hàng 2">
+                <h2> Lan Anh</h2>
+            <div class="rating">
+                <div class="stars">
+                    ★★★★★
+                </div>
+                <p class="comment">Nhân dịp sinh nhật chồng, mình sẵn mua cho mình và cả chồng luôn vì Mistery có bán cho cả 2, ban đầu thấy giá hợp lý, cũng là một hãng mới nên mình muốn thử, mua về chồng khen quá trời mà mình cũng thấy ưng với chai của mình nữa, mùi nó dịu dịu mà đã cuốn cuốn, đúng kiểu nét đẹp bí ẩn của phụ nữ.
+                </p>
+            </div>
+        </div>
+    
+        <div class="review">
+            <img src="https://vtv1.mediacdn.vn/thumb_w/640/2020/10/21/flower-backdrop-model-holding-perfume-fragrance-bottle-1603271646278668939951.jpg" alt="Khách hàng 3">
+            <h2> Charlotte LinLin</h2>
+            <div class="rating">
+                <div class="stars">
+                    ★★★★★
+                </div>
+                <p class="comment">Perfume, an exquisite creation of art and science, captivates the senses like no other. Its enchanting blend of notes weaves a tapestry of emotions and memories, a silent symphony that dances upon the skin. With every spritz, it unveils a secret world of fragrance, evoking desire, confidence, and sensuality. I’m really like Mistery.
+                </p>
+            </div>
+        </div>
+    </div>
+    <section class="lienhe">
+        <div style="position: absolute;color: rgb(59, 22, 224) ;font-size: 28px; ">
+		<h1>LIÊN HỆ</h1></section>  
+        </div>
+        <div class="container1">
+            <div class="column1">
+                <div style="position: absolute;color: black ;font-size: 20px; width: 50%; ">
+                <h2>Thông tin liên hệ</h2>
+                <p><strong>Địa chỉ:</strong> 9A Phạm Ngọc Thạch, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh</p>
+                <p><strong>Thời gian hoạt động:</strong></p>
+                <ul>
+                    <li>9h - 20h (thứ 2 - thứ 7)</li>
+                    <li>9h - 14h (Chủ nhật)</li>
+                </ul>
+                <p><strong>Điện thoại:</strong> 0927662989</p>
+                </div>
+            </div>
+            <div class="column1">
+                <img src="https://pendecor.vn/uploads/files/2022/03/01/thiet-ke-shop-nuoc-hoa-11.jpg" alt="Hình ảnh">
+            </div>
+        </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer">
+          <h4 class="tieude"> Liên hệ</h4>
+          <p><img src="https://t3.ftcdn.net/jpg/06/30/58/86/240_F_630588674_tK2gFJVW7bong0Z1A4SpJlBuynTM0Imw.jpg" alt="Location Icon" class="location-icon">9A Phạm Ngọc Thạch, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh</p>
+          <p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT46N_APrH0jDN7rexIoteKH1RYJXUPMKKyOg&usqp=CAU" alt="Clock Icon" class="clock-icon">9h - 20h (thứ 2 - thứ 7)</p>
+          <p>9h - 14h (Chủ nhật)</p>
+          <p><img src="https://i.pinimg.com/564x/37/be/da/37beda9d8a3eea99f777b4d2145f1fc5.jpg" alt="Call Icon" class="call-icon">0927662989</p>
+        </div>
+        
+        <div class="footer">
+          <h4 class="tieude"> Hỗ trợ khách hàng</h4>
+            <nav class="HTKH">
+            <a href="#">Hướng dẫn đặt hàng</a><br>
+            <a href="#">Phí vận chuyển</a><br>
+            <a href="#">Phương thức thanh toán</a><br>
+            <a href="#">Theo dõi đơn hàng</a><br>
+            <a href="#">Điều khoản dịch vụ</a><br>
+            </nav></div>
+        <div class="footer">
+          <h4 class="tieude"> Về chúng tôi</h4>
+          <nav class="HTKH">
+            <a href="#">Giới thiệu</a><br>
+            <a href="#">Báo chí</a><br>
+            <a href="#">Liên hệ</a><br>
+        </nav>
+        <h4 class="tieude"> Kết nối với Mistery</h4> 
+            <img src="https://img.freepik.com/premium-vector/facebook-instagram-tiktok-icon_469489-860.jpg" alt="Mạng xã hội" class="media-icon">
+        </div>
+        </div>
+      </footer>
+</body>
+</html>
